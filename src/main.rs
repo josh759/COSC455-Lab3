@@ -1,3 +1,5 @@
+mod training;
+
 fn main() {
     let test1 = "ABC123DEF".to_string();
     let test2 = "123ABC".to_string();
@@ -5,6 +7,9 @@ fn main() {
     // Assertions for the test cases
     assert_eq!(q1_parser(test1), true);
     assert_eq!(q1_parser(test2), false);
+
+    // Run Task 7 training examples
+    training::run_training_examples();
 }
 
 // Utility method that takes a character and returns true if digit
@@ -20,14 +25,12 @@ fn is_uppercase_letter(c: char) -> bool {
 }
 
 fn q1_parser(text: String) -> bool {
-
     // make String into char vector
     let characters_array: Vec<char> = text.chars().collect();
 
     // for each character in the character vector do...
     // where i starts at 1 and increments for each iteration
     for (i, character) in characters_array.iter().enumerate() {
-
         if i < 2 && !is_uppercase_letter(*character) {
             return false;
         }
